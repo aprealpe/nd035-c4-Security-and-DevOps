@@ -43,7 +43,7 @@ public class UserController {
 	@GetMapping("/{username}")
 	public ResponseEntity<User> findByUserName(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
-		log.info(user == null ? "Username not found" : "Username found");
+		log.info(user == null ? "GetUser - Username not found" : "GetUser - Username found");
 		return user == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(user);
 	}
 	
@@ -56,12 +56,12 @@ public class UserController {
 		user.setCart(cart);
 		if(createUserRequest.getPassword().length()<7 ||
 				!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())) {
-			log.error("Password not valid");
+			log.error("CreateUser Failed - Password not valid");
 			return ResponseEntity.badRequest().build();
 		}
 		user.setPassword(bCryptPasswordEncoder.encode(createUserRequest.getPassword()));
 		userRepository.save(user);
-		log.info("User created with username {}", user.getUsername());
+		log.info("CreateUser Successes - User created with username {}", user.getUsername());
 		return ResponseEntity.ok(user);
 	}
 	

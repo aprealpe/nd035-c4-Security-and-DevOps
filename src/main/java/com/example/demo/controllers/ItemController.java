@@ -28,21 +28,21 @@ public class ItemController {
 	@GetMapping
 	public ResponseEntity<List<Item>> getItems() {
 		List<Item> response = itemRepository.findAll();
-		log.info("Found {} items", response.size());
+		log.info("GetItems - Found {} items", response.size());
 		return ResponseEntity.ok(response);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Item> getItemById(@PathVariable Long id) {
 		Optional<Item> response = itemRepository.findById(id);
-		log.info("Found item with the id {}", id.toString());
+		log.info("GetItemById - Found item with the id {}", id.toString());
 		return ResponseEntity.of(response);
 	}
 	
 	@GetMapping("/name/{name}")
 	public ResponseEntity<List<Item>> getItemsByName(@PathVariable String name) {
 		List<Item> items = itemRepository.findByName(name);
-		log.info(items == null || items.isEmpty() ? "Item not Found with name " + name : "Items found" + items.size() + "with name" + name);
+		log.info(items == null || items.isEmpty() ? "GetItemById - Item not Found with name " + name : "GetItemById - Items found" + items.size() + "with name" + name);
 		return items == null || items.isEmpty() ? ResponseEntity.notFound().build()
 				: ResponseEntity.ok(items);
 			
