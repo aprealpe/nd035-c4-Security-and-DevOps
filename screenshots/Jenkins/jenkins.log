@@ -1,0 +1,96 @@
+Started by user Udacity
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/ProjectUdacity
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+using credential 2e109466-d75b-4cde-b0b7-55b1da88c8c6
+Cloning the remote Git repository
+Cloning repository https://github.com/aprealpe/nd035-c4-Security-and-DevOps
+ > git init /var/jenkins_home/workspace/ProjectUdacity # timeout=10
+Fetching upstream changes from https://github.com/aprealpe/nd035-c4-Security-and-DevOps
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_SSH to set credentials
+ > git fetch --tags --force --progress -- https://github.com/aprealpe/nd035-c4-Security-and-DevOps +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/aprealpe/nd035-c4-Security-and-DevOps # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision 81abfe2fce28b52721edc36df002b04642626999 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 81abfe2fce28b52721edc36df002b04642626999 # timeout=10
+Commit message: "Improving logs for splunk"
+ > git rev-list --no-walk 91e7aa78803f795cbc4568f975d0cce51d706f86 # timeout=10
+[ProjectUdacity] $ /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/maven_3.3.9/bin/mvn -f pom.xml package
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< com.example:auth-course >-----------------------
+[INFO] Building auth-course 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ auth-course ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ auth-course ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /var/jenkins_home/workspace/ProjectUdacity/target/classes
+[INFO]
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ auth-course ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/ProjectUdacity/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ auth-course ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /var/jenkins_home/workspace/ProjectUdacity/target/test-classes
+[WARNING] /var/jenkins_home/workspace/ProjectUdacity/src/test/java/com/example/demo/controllers/CartControllerTest.java:[16,21] java.awt.peer.CanvasPeer is internal proprietary API and may be removed in a future release
+[WARNING] /var/jenkins_home/workspace/ProjectUdacity/src/test/java/com/example/demo/controllers/CartControllerTest.java:[16,21] java.awt.peer.CanvasPeer is internal proprietary API and may be removed in a future release
+[WARNING] /var/jenkins_home/workspace/ProjectUdacity/src/test/java/com/example/demo/controllers/CartControllerTest.java:[16,21] java.awt.peer.CanvasPeer is internal proprietary API and may be removed in a future release
+[INFO]
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ auth-course ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.example.demo.controllers.CartControllerTest
+12:28:26.003 [main] INFO com.example.demo.controllers.UserController - AddToCart - Cart Updated with new Item
+12:28:26.077 [main] INFO com.example.demo.controllers.UserController - RemoveFromCart - Cart Updated remove an Item
+12:28:26.084 [main] INFO com.example.demo.controllers.UserController - AddToCart - Cart Updated with new Item
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.531 sec - in com.example.demo.controllers.CartControllerTest
+Running com.example.demo.controllers.ItemControllerTest
+12:28:26.105 [main] INFO com.example.demo.controllers.UserController - GetItemById - Found item with the id 1
+12:28:26.119 [main] INFO com.example.demo.controllers.UserController - GetItemById - Items found1with nameAirItem
+12:28:26.123 [main] INFO com.example.demo.controllers.UserController - GetItems - Found 2 items
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in com.example.demo.controllers.ItemControllerTest
+Running com.example.demo.controllers.OrderControllerTest
+12:28:26.257 [main] INFO com.example.demo.model.persistence.User - SubmitByUsername - Order saved for user Paola
+12:28:26.260 [main] INFO com.example.demo.model.persistence.User - HistoryByUsername - Found history of order for user Paola
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 sec - in com.example.demo.controllers.OrderControllerTest
+Running com.example.demo.controllers.UserControllerTest
+12:28:26.315 [main] INFO com.example.demo.controllers.UserController - CreateUser Successes - User created with username Paola
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 sec - in com.example.demo.controllers.UserControllerTest
+
+Results :
+
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO]
+[INFO] --- maven-war-plugin:3.2.2:war (default-war) @ auth-course ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [auth-course] in [/var/jenkins_home/workspace/ProjectUdacity/target/auth-course-0.0.1-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Webapp assembled in [541 msecs]
+[INFO] Building war: /var/jenkins_home/workspace/ProjectUdacity/target/auth-course-0.0.1-SNAPSHOT.war
+[INFO]
+[INFO] --- spring-boot-maven-plugin:2.1.5.RELEASE:repackage (repackage) @ auth-course ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.441 s
+[INFO] Finished at: 2021-06-20T12:28:32Z
+[INFO] ------------------------------------------------------------------------
+Finished: SUCCESS
